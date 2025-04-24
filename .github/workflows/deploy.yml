@@ -15,7 +15,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages        # ✅ Specifies the branch to push to
-          enable_jekyll: true             # ✅ Avoids conflicts with Jekyll processing
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # ✅ Required!
+          publish_dir: .                               # 📁 Where your index.html is
+          publish_branch: gh-pages                     # 📦 Deploy to gh-pages
+          enable_jekyll: true
