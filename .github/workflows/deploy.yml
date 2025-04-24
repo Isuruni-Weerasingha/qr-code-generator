@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy QR Code Generator
 
 on:
   push:
@@ -7,10 +7,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: .
+          publish_branch: gh-pages        # ✅ Specifies the branch to push to
+          enable_jekyll: true             # ✅ Avoids conflicts with Jekyll processing
